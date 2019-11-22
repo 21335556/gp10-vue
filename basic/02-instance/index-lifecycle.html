@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<title>Vue.js - lifecycle</title>
+</head>
+<body>
+  <div id="root" v-on:click="$options.handleInput">
+    {{title}}
+  </div>
+</body>
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#root',
+    data: {
+      title:'hello'
+    },
+    template: '<b>{{title}}</b>',
+    methods: {
+      handleClick() {
+        this.$options.handleInput()
+      }
+    },
+    handleInput() {
+      console.log(0);
+    },
+
+    // 未拿到数据前
+    beforeCreate() {
+      // console.log('beforeCreate');
+      console.log(this);
+      console.log(this.title);
+      console.log(document.querySelector('b'));
+    },
+
+    // 拿到data时
+    created() {
+      // console.log('created');
+      console.log(this);
+      console.log(this.title);
+      console.log(document.querySelector('b'));
+    },
+
+    beforeMount() {
+      // console.log('beforeMount');
+      console.log(this);
+      console.log(this.title);
+      console.log(document.querySelector('b'));
+    },
+
+    // 渲染页面后
+    mounted() {
+      // console.log('mounted');
+      console.log(this);
+      console.log(this.title);
+      console.log(document.querySelector('b'));
+      // setInterval(() => {
+      //   this.title = new Date().getTime()
+      // },1000)
+      setTimeout(() => {
+        this.$destroy()
+      },3000)
+    },
+
+    // 重新渲染前
+    beforeUpdate() {
+      console.log('beforeUpdate');
+    },
+
+    updated() {
+      console.log('updated');
+    },
+
+    // 销毁  卸载组件.... 监听，子组件,渲染组件
+    beforeDestroy() {
+      console.log('beforeDestory');
+    },
+
+    destroyed() {
+      console.log('destoryed');
+    },
+
+    // 发生错误时 捕获错误 来自子孙组件错误
+    errorCaptured(){
+
+    },
+
+    // keep-alive 组件激活时调用 该钩子在服务器端渲染期间不被调用 在路由期间调用
+    activated() {
+
+    },
+
+    // keep-alive 组件停用时调用 该钩子在服务器端渲染期间不被调用 在路由期间调用
+    deactivated() {
+
+    }
+  })
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<title>Vue.js lifecycle</title>
+</head>
+<body>
+  <div id="root" v-on:click="handleClick">
+    {{title}}
+  </div>
+</body>                                                                                                                                                                                                                                                                                        
+<script>
+  var vm = new Vue({
+    el: '#root',
+    data: {
+      title: 'hello'
+    },
+    methods: {
+      handleClick() {
+        console.log(0)
+      }
+    },
+    hangleInput() {
+      console.log(this);
+    }
+  })
+</script>
+</html> -->

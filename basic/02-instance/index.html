@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<title>Vue.js</title>
+</head>
+<body>
+  <div id="root">
+    {{title}}
+  </div>
+  <div id="app">
+    {{msg}} {{alt}}
+  </div>
+</body>
+<script type="text/javascript">
+  var data = {
+    products: [],
+    title: 'hello',
+    msg: 'world',
+    alt: '我不是一个世界'
+  }
+
+  Object.freeze(data)
+
+  var vm = new Vue({
+    el:'#root',
+    data,
+    mounted() {
+      console.log(this.$el);
+    }
+  })
+  var vm = new Vue({
+    el:'#app',
+    data,
+    mounted() {
+      console.log(this.$el);
+    }
+  })
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<title>Vue.js instance</title>
+</head>
+<body>
+  <div id="root">
+    <h1>{{title}}</h1>
+  </div>
+  <div id="app">
+    <h1>{{msg}}</h1>
+  </div>
+</body>                                                                                                                                                                                                                                                                                        
+<script>
+
+  var data = {
+    products:[],
+    title: 'hello',
+    msg: 'world'
+  }
+
+  // 禁止data赋值，赋值会报错
+  Object.freeze(data)
+
+  var vm = new Vue({
+    el:'#root',
+    data,
+    mounted() {
+      console.log(this.$el);
+    }
+  })
+  
+  var vm = new Vue({
+    el:'#app',
+    data,
+    mounted() {
+      console.log(this.$el);
+    }
+  })
+</script>
+</html> -->
