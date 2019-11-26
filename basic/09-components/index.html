@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<title>Vue.js - components</title>
+</head>
+<body>
+  <div id="root">
+    <!-- <blog v-for="item in 10" :key="item"></blog> -->
+    <blog
+      v-for="item in posts"
+      :title="item.title"
+      :key="item.id"
+    >
+
+    </blog>
+  </div>
+</body>
+<script type="text/javascript">
+  // // 子组件
+  // Vue.component('blog-button', {
+  //   props: ['buttonText'],
+  //   template: '<button>{{buttonText}}</button>'
+  // })
+
+  // Vue.component('blog-list-item', {
+  //   template: `<div>item 
+  //       <blog-button button-text="enter"></blog-button>
+  //     </div>
+  //   `
+  // })
+
+  // Vue.component('blog-list', {
+  //   template: `
+  //     <div>
+  //       list
+  //       <blog-list-item></blog-list-item>
+  //       <blog-list-item></blog-list-item>
+  //       <blog-list-item></blog-list-item>
+  //     </div>
+  //   `
+  // })
+
+  // Vue.component('blog-form', {
+  //   template: `<div>
+  //       <textarea>请输入...</textarea></br>
+  //       <blog-button button-text="submit"></blog-button>
+  //     </div>
+  //   `
+  // })
+
+  // // 全局组件
+  // Vue.component('blog', {
+  //   template: `
+  //     <div>
+  //       <blog-list></blog-list>
+  //       <blog-form></blog-form>
+  //     </div>
+  //   `,
+  // })
+
+  // 局部组件
+  // 子组件
+  const BlogButton = {
+    props: ['buttonText'],
+    template: '<button>{{buttonText}}</button>'
+  }
+
+  const BlogListItem = {
+    template: `<div>item 
+        <blog-button button-text="enter"></blog-button>
+      </div>
+    `,
+    components: {
+      BlogButton
+    }
+  }
+
+  const BlogList = {
+    template: `
+      <div>
+        list
+        <blog-list-item></blog-list-item>
+        <blog-list-item></blog-list-item>
+        <blog-list-item></blog-list-item>
+      </div>
+    `,
+    components: {
+      BlogListItem
+    }
+  }
+
+  const BlogForm = {
+    template: `<div>
+        <textarea>请输入...</textarea></br>
+        <blog-button button-text="submit"></blog-button>
+      </div>
+    `,
+    components: {
+      BlogButton
+    }
+  }
+
+  // 全局组件
+  const Blog = {
+    props: ['title'],
+    template: `
+      <div>
+        <span>{{title}}</span>
+        <blog-list></blog-list>
+        <blog-form></blog-form>
+      </div>
+    `,
+    components: {
+      BlogList,
+      BlogForm
+    }
+  }
+  // var vm = new Vue({
+  //   el:'#root',
+  //   data: {
+
+  //   },
+  //   components: {
+  //     Blog
+  //   }
+  // })
+
+
+  new Vue({
+    el: '#root',
+    data: {
+      posts: [
+        { id: 1, title: 'My journey with Vue' },
+        { id: 2, title: 'Blogging with Vue' },
+        { id: 3, title: 'Why Vue is so fun' }
+      ]
+    },
+    components: {
+      Blog
+    }
+  })
+</script>
+</html>

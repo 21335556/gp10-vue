@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<title>Vue.js - props</title>
+</head>
+<body>
+  <div id="root">
+    <parent>
+      <i>asdff</i>
+      <b slot="text">slot</b>
+      <a slot="link" href="www.baidu.com">百度</a>
+    </parent>
+  </div>
+</body>
+<script type="text/javascript">
+
+  const child = {
+    props: ['msg'],
+    template: `
+      <div>
+        <div>{{msg}}</div>
+        <button @click="handleClick">child click</button>
+      </div>
+    `,
+    data() {
+      return {
+        title: 'hello'
+      }
+    },
+    methods: {
+      handleClick() {
+        this.$emit('onMessage', 'aaa')
+      }
+    },
+    mounted() {
+      console.log('child');
+      // console.log(this.title);
+    },
+    updated() {
+      console.log(this.msg);
+    },
+  }
+
+  const parent = {
+    data() {
+      return {
+        msg: 'hello'
+      }
+    },
+    template: `<div>
+        <h1>parent</h1>
+        <hr/>
+        <slot></slot>
+        <slot name="link"></slot>
+        <slot name="text"></slot>
+        <hr/>
+        <child
+        :msg="msg"
+        @onMessage="handleMessage"
+        ></child>
+        <button @click="handleClick">parent click</button>
+      </div>
+    `,
+    methods: {
+      handleClick() {
+        this.msg = "world"
+      },
+      handleMessage(msg) {
+        console.log(msg);
+      }
+    },
+    mounted() {
+      console.log('parent');
+      console.log(child.title)
+    },
+    components: {
+      child
+    }
+  }
+
+  new Vue({
+    el: '#root',
+    // 自定义组件函数
+    components: {
+      parent
+    }
+  })
+</script>
+</html>

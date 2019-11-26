@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<title>Vue.js - if</title>
+</head>
+<body>
+  <div id="root">
+    <!-- <div v-if="title === 'hello'">
+      hello
+    </div>
+    <div v-else>
+      world
+    </div> -->
+    <!-- <template v-if="title === 'hello'">
+     <div>
+      hello
+    </div>
+    <div>
+      world
+    </div>
+    </template> -->
+    <!-- <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" :key="'abc'">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your address" :key="'def'">
+    </template> -->
+    <!-- <div v-for="value of fruits" v-show="value === '🍎'">
+      {{value}}
+    </div> -->
+    <div v-for="(value, key, index) of merged">
+      {{index}} - {{value}}
+    </div>
+    <div v-for="value in genObj">
+      {{value}}
+    </div>
+    <li v-for="n in even(numbers)">{{n}} </li>
+    <div v-for="n,index in 'njbhgvfghjknj'">{{index}} {{n}} </div>
+    <ul>
+      <template v-for="n in 10">
+        <li>{{n}} </li>
+        <li>{{n+1}} </li>
+      </template>
+    </ul>
+  </div>
+</body>
+<script type="text/javascript">
+  var vm = new Vue({
+    el:'#root',
+    data: {
+      show: false,
+      title: 'world',
+      loginType: 'username',
+      // fruits:['🍎', '🍇', '🍉', '🍌']
+      fruit: ['🍎','📷'],
+      course: ['html','css'],
+      numbers: [1,2,3,4,5]
+    },
+    computed: {
+      // 数组的组合
+      merged() {
+        return [...this.fruit, ...this.course]
+      },
+      genObj() {
+        return {
+          x: 1,
+          y: 2
+        }
+      }
+    },
+    methods: {
+      even: function (numbers) {
+        return numbers.filter(function(number){
+          return number % 2 === 0
+        })
+      }
+    }
+  })
+</script>
+</html>

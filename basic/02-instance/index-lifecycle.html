@@ -31,17 +31,17 @@
     // 未拿到数据前
     beforeCreate() {
       // console.log('beforeCreate');
-      console.log(this);
-      console.log(this.title);
-      console.log(document.querySelector('b'));
+      // console.log(this);
+      // console.log(this.title);
+      // console.log(document.querySelector('b'));
     },
 
     // 拿到data时
     created() {
       // console.log('created');
-      console.log(this);
-      console.log(this.title);
-      console.log(document.querySelector('b'));
+      // console.log(this);
+      // console.log(this.title);
+      // console.log(document.querySelector('b'));
     },
 
     beforeMount() {
@@ -54,33 +54,33 @@
     // 渲染页面后
     mounted() {
       // console.log('mounted');
-      console.log(this);
-      console.log(this.title);
-      console.log(document.querySelector('b'));
+      // console.log(this);
+      // console.log(this.title);
+      // console.log(document.querySelector('b'));
       // setInterval(() => {
       //   this.title = new Date().getTime()
       // },1000)
-      setTimeout(() => {
-        this.$destroy()
-      },3000)
+      // setTimeout(() => {
+      //   this.$destroy()
+      // },3000)
     },
 
     // 重新渲染前
     beforeUpdate() {
-      console.log('beforeUpdate');
+      // console.log('beforeUpdate');
     },
 
     updated() {
-      console.log('updated');
+      // console.log('updated');
     },
 
     // 销毁  卸载组件.... 监听，子组件,渲染组件
     beforeDestroy() {
-      console.log('beforeDestory');
+      // console.log('beforeDestory');
     },
 
     destroyed() {
-      console.log('destoryed');
+      // console.log('destoryed');
     },
 
     // 发生错误时 捕获错误 来自子孙组件错误

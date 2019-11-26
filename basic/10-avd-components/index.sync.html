@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- <meta name="viewport" content="width=device-width, inital-scale=1.0"> -->
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<title>vue.js - sync</title>
+<script src="../vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <text-document :title.sync="title">
+      <div slot="aa">aa</div>
+      <div>bb</div>
+      <div>cc</div>
+    </text-document>
+    <div>{{title}}</div>
+  </div>
+<script type="text/javascript">
+  const TextDocument = {
+    template: `
+      <div><slot></slot><slot name="aa"></slot><button @click="$emit('update:title','world')">click</button></div>
+    `
+  }
+
+  var vm = new Vue({
+    el:'#root',
+    components: {
+      TextDocument,
+
+    },
+    data: {
+      title: 'hello'
+    }
+  })
+</script>
+</body>
+</html>

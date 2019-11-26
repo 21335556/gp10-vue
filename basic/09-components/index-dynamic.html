@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<script src="../vue.js"></script>
+<title>Vue.js - dynamic components</title>
+</head>
+<body>
+  <div id="root">
+    <ul>
+      <li v-for="c in componentNames" @click="handleClick(c)">{{c}}</li>
+    </ul>
+    <div>
+      <keep-alive>
+        <component :is="currentComp"></component>
+      </keep-alive>
+    </div>
+    <ul>
+      <!-- 渲染页面外壳 标签名不出现在页面 -->
+      <li is="list"></li>
+      <list></list>
+    </ul>
+    
+    <ul>
+      <span>aa</span>
+    </ul>
+
+    <div>
+      <child></child>
+      <child></child>
+      <child></child>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  const List = {
+    // 渲染到页面
+    template: '<li>aaa</li>',
+  }
+
+  const comp1 = {
+    template: `
+      <div>complate 1</div>
+    `,
+    mounted() {
+      console.log(0);
+    },
+    destorued() {
+      console.log('comp1');
+    },
+    // 缓存的组件被中心激活时候
+    activated() {
+      console.log('activated');
+    },
+    deactivated() {
+      console.log('deactivated');
+    },
+  }
+
+  const comp2 = {
+    template: `
+      <div>complate 2</div>
+    `,
+    destorued() {
+      console.log('comp1');
+    }
+  }
+
+  const comp3 = {
+    template: `
+      <div>complate 3</div>
+    `,
+    destorued() {
+      console.log('comp1');
+    }
+  }
+
+  let data = {
+    count: 0
+  }
+
+  const child = {
+    template: '<div>{{count}}<button @click="count++">+</button></div>',
+    data() {
+      return data
+    }
+  }
+
+  new Vue({
+    el:'#root',
+    data: {
+      componentNames: ['comp1','comp2','comp3'],
+      currentComp: 'comp1'
+    },
+    methods: {
+      handleClick(component) {
+        this.currentComp = component
+      }
+    },
+
+    components: {
+      comp1,
+      comp2,
+      comp3,
+      List,
+      child
+    }
+  })
+</script>
+</html>
