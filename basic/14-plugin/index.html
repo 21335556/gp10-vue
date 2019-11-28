@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<title>plugin</title>
+<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+  {{ msg | slice }}
+</div>
+<script type="text/javascript">
+var myplugin = {}
+
+myplugin.install = (Vue, options) => {
+  Vue.zoom = (vm, content) => {
+    vm.msg = content
+  }
+
+  Vue.filter('slice', (value) => {
+    return value.slice(0, 1)
+  })
+
+  Vue.prototype.$alert = (msg) => {
+    alert(msg)
+  }
+}
+
+Vue.use(myplugin)
+
+var vm = new Vue({
+  el:'#root',
+  data: {
+    msg: 'hello',
+  },
+  mounted() {
+    this.$alert(this.msg)
+  },
+})
+
+Vue.zoom(vm, 'world')
+</script>
+</body>
+</html>
