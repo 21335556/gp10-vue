@@ -1,28 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <Index />
 </template>
-
+  
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Index from './pages/Index'
 export default {
-  name: 'app',
+  data() {
+    return {
+      msg: 'hello'
+    }
+  },
+
   components: {
-    HelloWorld
+    Index
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus" scoped>
+apply(props)
+  props = arguments if length(arguments) > 1
+  for prop in props
+    {prop[0]} prop[1]
+
+// div
+//   apply(font-size 100px, color red)
+
 </style>
