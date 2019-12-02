@@ -1,29 +1,70 @@
 <template>
   <div class="item">
     <div class="main-block">
-      <div class="avatar" sort-flag="">
+      <div class="avatar" sort-flag>
         <div class="default-img-bg">
-          <img src="https://p0.meituan.net/128.180/moviemachine/19d48b1fd4f4af5c8c8e1c780a26fa431567220.jpg" onerror="this.style.visibility='hidden'">		
+          <img :src="movie.img | replace('192.270')" width="64" height="90" onerror="this.style.visibility='hidden'"
+          />
         </div>
-      </div> 
+      </div>
       <div class="mb-outline-b content-wrapper">
         <div class="column content">
           <div class="box-flex movie-title">
-            <div class="title line-ellipsis ">两只老虎</div>
+            <div class="title line-ellipsis">{{movie.nm}}</div>
+            <span class="version" :class="movie.version"></span>
           </div>
           <div class="detail column">
-                <div class="score line-ellipsis"> 
-                  <span class="score-suffix">观众评 </span>
-                  <span class="grade">7.9</span>
-                </div>
-              <div class="actor line-ellipsis">主演: 葛优,乔杉,赵薇</div>
-              <div class="show-info line-ellipsis">今天229家影院放映3306场</div>
+            <div class="score line-ellipsis">
+              <span class="score-suffix">观众评</span>
+              <span class="grade">{{movie.sc}}</span>
+            </div>
+            <div class="actor line-ellipsis">{{movie.star}}</div>
+            <div class="show-info line-ellipsis">{{movie.showInfo}}</div>
           </div>
         </div>
-        <div class="button-block" data-id="1277644">
-            <div class="btn normal"><span class="fix" data-bid="dp_wx_home_movie_btn">购票</span></div>
-        </div>
+        <movie-button :movie="movie"
+        ></movie-button>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import MovieButton from './MovieButton'
+export default {
+  props: {
+    movie: Object
+  },
+  
+  components: {
+    MovieButton
+  }
+}
+</script>
+
+<style lang="stylus">
+@import '~@/assets/styles/ellpsis.styl';
+@import '~@/assets/styles/border.styl';
+
+.line-ellipsis .line-ellipsis {
+  ellipsis(100%);
+}
+
+.tab-content .list-wrap .item .movie-title {
+  display: flex;
+}
+
+.tab-content .list-wrap .item .name, .tab-content .list-wrap .item .title {
+  display: inline-block;
+}
+
+.tab-content .list-wrap .item .content-wrapper {
+  border_1px(0 0 1px 0);
+}
+
+.tab-content .list-wrap .item .content-wrapper {
+  height: 100% !important;
+  max-height: 100% !important;
+  margin-right: 0.15rem;
+}
+</style>

@@ -1,3 +1,32 @@
 2019-06-28
 - 单文件组件
 .vue(html, js, css)
+
+https://stylus-lang.net/docs/selectors.html
+
+2019-06-29
+axios
+可以用在前后端 (node.js)
+
+http://www.axios-js.com/
+
+样式优先级
+用户定义的浏览器样式
+浏览器默认样式
+用于用户定义样式
+
+IE6，IE7
+div
+  div
+div
+  div
+
+http://p1.meituan.net/w.h/movie/b9abe12e6bd785d29abef9c98518eec62044645.jpg"
+https://p0.meituan.net/128.180/moviemachine/58ee13be6dc60bf5e636cf915bbbaaa55787785.jpg
+
+移动端图片要引入3倍图
+
+http://mint-ui.github.io/#!/zh-cn
+
+
+
