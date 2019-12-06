@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <div class="main-block">
-      <div class="avatar" sort-flag>
+      <div class="avatar">
         <div class="default-img-bg">
           <img :src="movie.img | replace('192.270')" width="64" height="90" onerror="this.style.visibility='hidden'"
           />

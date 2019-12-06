@@ -1,16 +1,15 @@
 <template>
- <section class="topbar" style="">
-    <div class="white-bg topbar-bg ">
+ <section class="topbar">
+    <div class="white-bg topbar-bg">
       <div class="city-entry">
         <span class="city-name">北京</span><i class="city-entry-arrow"></i>
       </div>
       
-      <div class="switch-hot" data-active=".n-hot">
-        <div class="hot-item active" data-tab=".n-hot">正在热映</div>
-        <div class="hot-item ">即将上映</div>
+      <div class="switch-hot">
+        <router-link tag="div" to="/movies/intheater" active-class="active" class="hot-item">正在热映</router-link>
+        <router-link tag="div" to="/movies/comingsoon" active-class="active" class="hot-item">即将上映</router-link>
       </div>
       <div class="search-entry search-icon"></div>
-      
     </div>
   </section>
 </template>

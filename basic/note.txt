@@ -69,3 +69,10 @@ this.propsname
 - v-slot(替代v2.6- slot-scop)
 
 异步组件，路由懒加载
+
+2019-07-01
+包容性路由
+排他性路由
+
+oops:
+

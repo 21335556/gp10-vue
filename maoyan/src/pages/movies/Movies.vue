@@ -1,17 +1,17 @@
 <template>
   <div>
     <Nav></Nav>
-    <Intheaters></Intheaters>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Nav from './Nav'
-import Intheaters from './Intheaters'
+// import Intheaters from './Intheaters'
 export default {
   components: {
     Nav,
-    Intheaters
+    // Intheaters
   }
 }
 </script>
