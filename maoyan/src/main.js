@@ -6,7 +6,7 @@ import router from './router/'
 
 import './assets/styles/reset.styl'
 import './assets/styles/movie-item.css'
-// import 'animate.css'
+import 'animate.css'
 
 import './filters/img-replace'
 import './mixins/scroll'

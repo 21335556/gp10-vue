@@ -33,7 +33,7 @@ export default {
 
   methods: {
     handleClick(id) {
-      console.log(id)
+      // console.log(id)
       this.$router.push({
         name: 'detail',
         params: {
@@ -44,7 +44,7 @@ export default {
   },
 
   destroyed() {
-    console.log('Tv has destoryed.');
+    // console.log('Tv has destoryed.');
   },
 }
 </script>

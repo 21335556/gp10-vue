@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<title>Document</title>
+<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+  <home></home>
+</div>
+<script type="text/x-template" id="hello-world-template">
+ <p>Hello hello hello</p>
+</script>
+<script type="text/javascript">
+
+const swiper = {
+ 
+}
+const scroll = {
+  template: '#hello-world-template'
+}
+
+const home = {
+  template: `
+    <scroll>
+      <div>scroll</div>  
+    </scroll>
+  `,
+  components: {
+    scroll,
+    swiper
+  }
+}
+
+new Vue({
+  el: '#root',
+  data: {
+  },
+  components: {
+    home
+  }
+})
+</script>
+</body>
+</html>

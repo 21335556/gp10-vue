@@ -38,8 +38,6 @@ export default {
   },
   
   async mounted() {
-    // '/ajax/movieOnInfoList'
-    // '/ajax/moreComingList'
     this.scroll({
       vm:this,
       params: {

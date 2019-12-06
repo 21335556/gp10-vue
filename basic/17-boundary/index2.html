@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="id=edge">
+<title>Document</title>
+<script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+  <home></home>
+</div>
+<script type="text/javascript">
+
+const swiper = {
+ 
+}
+const scroll = {
+  data() {
+    return {
+      arr: ['a', 'b']
+    }
+  },
+  template: `
+    <div>{{arr}}<button @click="handleClick">click</button></div>
+  `,
+  methods: {
+    handleClick() {
+      this.arr[0] = 'c'
+      this.$forceUpdate()
+    }
+  }
+}
+
+const home = {
+  template: `
+    <scroll></scroll>
+  `,
+  components: {
+    scroll,
+    swiper
+  }
+}
+
+new Vue({
+  el: '#root',
+  data: {
+  },
+  components: {
+    home
+  }
+})
+</script>
+</body>
+</html>
