@@ -3,7 +3,9 @@
     <Nav></Nav>
     <transition :name="transitionName"
     >
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </transition>
   </div>
 </template>

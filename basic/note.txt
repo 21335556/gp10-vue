@@ -76,3 +76,10 @@ this.propsname
 
 oops:
 
+2019-07-04
+状态: 
+1、组件内部状态: data里的变量
+2、组件外部状态:
+- props
+- states
+3、所有的状态都在内存里

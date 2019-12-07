@@ -18,7 +18,8 @@ Vue.mixin({
       Indicator.close()
 
       let bScroll = new BScroll('.tab-content', {
-        pullUpLoad: true
+        pullUpLoad: true,
+        click: true
       })
 
       let chunkedMovieIds = _.chunk(movieIds.slice(12), 10)
