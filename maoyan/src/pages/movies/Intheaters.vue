@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="tab-content">
+    <div class="tab-content" id="intheater-scroll">
       <div class="page h-not active">
         <div class="list-wrap">
           <MovieItem
@@ -18,6 +18,7 @@
 
 <script>
 import MovieItem from '@/components/movielist/MovieItem'
+import resetState from '@/utils/reset-state'
 // import http from "../../utils/http";
 // import BScroll from 'better-scroll'
 // import { Indicator, Toast } from 'mint-ui'
@@ -26,20 +27,21 @@ export default {
   components: {
     MovieItem
   },
-
-  data() {
-    return {
-      movieList: []
+  computed: {
+    movieList() {
+      return this.$store.state.data.movieList
     }
   },
 
-  methods: {
-    
+  beforeRouteLeave(to, from, next) {
+    resetState(to, this)
+    next()
   },
-  
+
   async mounted() {
     this.scroll({
       vm:this,
+      container: '#intheater-scroll',
       params: {
         firstReq: {
           url:'/ajax/movieOnInfoList',
