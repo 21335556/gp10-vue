@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "serve": "cross-env NODE_ENV=development && vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production && vue-cli-service build"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
     "core-js": "^3.4.3",
+    "cross-env": "^6.0.3",
     "lodash": "^4.17.15",
     "mint-ui": "^2.2.13",
     "vue": "^2.6.10",
