@@ -1,0 +1,28 @@
+{
+  "name": "20-gp-nuxt",
+  "version": "1.0.0",
+  "description": "My remarkable Nuxt.js project",
+  "author": "limou",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "serve": "nuxt build && cross-env NODE_ENV=production nodemon server/index.js --watch server"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "axios": "^0.19.0",
+    "cross-env": "^5.2.0",
+    "element-ui": "^2.4.11",
+    "express": "^4.16.4",
+    "json-server": "^0.15.1",
+    "nuxt": "^2.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "@nuxtjs/stylelint-module": "^3.1.0",
+    "stylelint": "^10.1.0"
+  }
+}
